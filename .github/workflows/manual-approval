@@ -1,0 +1,16 @@
+name: Manual Review 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  manual-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: trstringer/manual-approval@main
+        with:
+          approvers: "user1, team1"
+          message: "Review and approve this deployment"
+          approve_keywords: "approved"
+          deny_keywords: "rejected, fail, denied"
